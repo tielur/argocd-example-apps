@@ -1,0 +1,17 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: greeting-midnight
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - args:
+            - Hello
+            command:
+            - echo
+            image: alpine:latest
+            name: main
+  schedule: */2 * * * *
