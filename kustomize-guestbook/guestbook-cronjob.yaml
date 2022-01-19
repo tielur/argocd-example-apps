@@ -9,10 +9,10 @@ spec:
       template:
         spec:
           containers:
-            - name: cron-test
-              image: "alpine:latest"
-              args:
-                - Hello
-              command:
-                - echo
-            restartPolicy: OnFailure
+          - name: cron-test
+            image: "alpine:latest"
+            args:
+              - Hello
+            command:
+              - echo
+          restartPolicy: OnFailure
