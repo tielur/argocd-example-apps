@@ -9,10 +9,8 @@ rules:
   - extensions
   - apps
   resources:
-  - deployments
-  - replicasets
+  - pods
   verbs:
-  - 'patch'
   - 'get'
 ---
 kind: RoleBinding
