@@ -5,13 +5,14 @@ metadata:
 spec:
   jobTemplate:
     spec:
-      template:
-        spec:
-          containers:
-          - args:
-            - Hello
+      spec:
+        containers:
+          -
+            args:
+              - Hello
             command:
-            - echo
-            image: alpine:latest
+              - echo
+            image: "alpine:latest"
             name: main
-  schedule: */2 * * * *
+        restartPolicy: OnFailure
+  schedule: "*/5 * * * *"
