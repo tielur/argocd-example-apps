@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: greetings
+  name: cups-restart
 spec:
   schedule: "*/1 * * * *"
   jobTemplate:
@@ -9,10 +9,12 @@ spec:
       template:
         spec:
           containers:
-          - name: cron-test
-            image: "alpine:latest"
-            args:
-              - Hello
+          - name: cups-restart-cronjob
+            image: bitnami/kubectl
             command:
-              - echo
+              - 'kubectl'
+              - 'delete'
+              - 'pods'
+              - '--selector=app=guestbook-ui'
+              - '-n default'
           restartPolicy: OnFailure
