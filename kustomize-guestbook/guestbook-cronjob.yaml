@@ -1,18 +1,18 @@
-apiVersion: batch/v1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: greetings
 spec:
+  schedule: "*/1 * * * *"
   jobTemplate:
     spec:
-      spec:
-        containers:
-          -
-            args:
-              - Hello
-            command:
-              - echo
-            image: "alpine:latest"
-            name: main
-        restartPolicy: OnFailure
-  schedule: "*/5 * * * *"
+      template:
+        spec:
+          containers:
+            - name: cron-test
+              image: "alpine:latest"
+              args:
+                - Hello
+              command:
+                - echo
+            restartPolicy: OnFailure
