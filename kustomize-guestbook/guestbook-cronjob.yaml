@@ -43,6 +43,7 @@ spec:
     spec:
       template:
         spec:
+          serviceAccountName: sa-cups-restart
           containers:
           - name: cups-restart-cronjob
             image: bitnami/kubectl
