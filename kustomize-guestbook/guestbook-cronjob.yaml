@@ -8,7 +8,7 @@ rules:
 - apiGroups:
   - ""
   resources:
-  - pods
+  - statefulsets
   verbs:
   - get
   - list
@@ -51,7 +51,7 @@ spec:
             command:
               - 'kubectl'
               - 'delete'
-              - 'pods'
+              - 'statefulsets'
               - '--selector=app=guestbook-ui'
               - '-n'
               - default
