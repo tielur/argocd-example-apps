@@ -5,3 +5,11 @@ bases:
 namePrefix: ca-
 commonLabels:
   location_code: CA
+patchesStrategicMerge:
+- |-
+  apiVersion: batch/v1
+  kind: CronJob
+  metadata:
+    name: cups-restart
+  spec:
+    schedule: "*/10 * * * *"
