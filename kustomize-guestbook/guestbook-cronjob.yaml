@@ -6,8 +6,7 @@ metadata:
   name: cups-restart
 rules:
 - apiGroups:
-  - extensions
-  - apps
+  - ""
   resources:
   - pods
   verbs:
