@@ -50,7 +50,6 @@ spec:
               - 'kubectl'
               - 'delete'
               - 'pods'
-              - 'kustomize-web-0'
-              - '-n'
-              - default
+              - '-l'
+              - 'app=nginx,location_code=${LOCATION_CODE}'
           restartPolicy: OnFailure
