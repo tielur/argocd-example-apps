@@ -39,6 +39,7 @@ metadata:
   name: cups-restart
 spec:
   schedule: "*/1 * * * *"
+  backoffLimit: 1
   jobTemplate:
     spec:
       template:
@@ -54,4 +55,3 @@ spec:
               - '-l'
               - 'app=nginx,location_code=${LOCATION_CODE}'
           restartPolicy: Never
-          backoffLimit: 1
