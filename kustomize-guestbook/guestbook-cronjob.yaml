@@ -54,5 +54,6 @@ spec:
               - 'delete'
               - 'pods'
               - '--selector=app=guestbook-ui'
-              - '-n default'
+              - '-n'
+              - default
           restartPolicy: OnFailure
