@@ -5,3 +5,11 @@ bases:
 namePrefix: nj-
 commonLabels:
   location_code: NJ
+patchesStrategicMerge:
+- |-
+  apiVersion: batch/v1
+  kind: CronJob
+  metadata:
+    name: cups-restart
+  spec:
+    schedule: "*/5 * * * *"
