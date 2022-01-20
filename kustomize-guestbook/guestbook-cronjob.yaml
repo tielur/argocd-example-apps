@@ -52,7 +52,7 @@ spec:
               - 'kubectl'
               - 'delete'
               - 'statefulsets'
-              - '--selector=app=guestbook-ui'
+              - '--selector=app=nginx'
               - '-n'
               - default
           restartPolicy: OnFailure
