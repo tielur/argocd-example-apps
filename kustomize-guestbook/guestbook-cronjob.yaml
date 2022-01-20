@@ -6,12 +6,10 @@ metadata:
   name: cups-restart
 rules:
 - apiGroups:
-  - apps
+  - ""
   resources:
-  - statefulsets
+  - pods
   verbs:
-  - get
-  - list
   - delete
 ---
 kind: RoleBinding
@@ -51,7 +49,7 @@ spec:
             command:
               - 'kubectl'
               - 'delete'
-              - 'statefulsets'
+              - 'pods'
               - 'kustomize-web'
               - '-n'
               - default
