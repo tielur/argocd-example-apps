@@ -6,7 +6,7 @@ metadata:
   name: cups-restart
 rules:
 - apiGroups:
-  - ""
+  - apps
   resources:
   - statefulsets
   verbs:
