@@ -9,6 +9,8 @@ rules:
   - ""
   resources:
   - pods
+  resourceNames:
+  - web
   verbs:
   - delete
   - list
