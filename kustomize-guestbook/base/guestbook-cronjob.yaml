@@ -48,10 +48,16 @@ spec:
           containers:
           - name: cups-restart-cronjob
             image: bitnami/kubectl
+            env:
+              - name: LOCATION_CODE
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.labels['location_code']
             command:
               - 'kubectl'
               - 'delete'
               - 'pods'
               - '-l'
-              - 'app=nginx,location_code=${LOCATION_CODE}'
+              - "app=nginx,location_code=${LOCATION_CODE}"
           restartPolicy: Never
+
