@@ -58,6 +58,6 @@ spec:
               - 'delete'
               - 'pods'
               - '-l'
-              - "app=nginx,location_code=${LOCATION_CODE}"
+              - "app=nginx,location_code=$LOCATION_CODE"
           restartPolicy: Never
 
