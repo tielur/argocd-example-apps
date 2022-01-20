@@ -52,7 +52,7 @@ spec:
               - 'kubectl'
               - 'delete'
               - 'statefulsets'
-              - '--selector=app=nginx'
+              - 'kustomize-web'
               - '-n'
               - default
           restartPolicy: OnFailure
