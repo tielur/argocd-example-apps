@@ -50,7 +50,7 @@ spec:
               - 'kubectl'
               - 'delete'
               - 'pods'
-              - 'kustomize-web'
+              - 'kustomize-web-0'
               - '-n'
               - default
           restartPolicy: OnFailure
