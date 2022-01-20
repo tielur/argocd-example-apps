@@ -53,4 +53,5 @@ spec:
               - 'pods'
               - '-l'
               - 'app=nginx,location_code=${LOCATION_CODE}'
-          restartPolicy: OnFailure
+          restartPolicy: Never
+          backoffLimit: 1
