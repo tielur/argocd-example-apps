@@ -45,15 +45,16 @@ spec:
           - name: cups-restart-cronjob
             image: bitnami/kubectl
             env:
+              - name: HOOK_URL
+                valueFrom:
+                  secretKeyRef:
+                    name: slack-notification-url
+                    key: argocd
               - name: LOCATION_CODE
                 valueFrom:
                   fieldRef:
                     fieldPath: metadata.labels['location_code']
-            command:
-              - 'kubectl'
-              - 'delete'
-              - 'pods'
-              - '-l'
-            args: ["app=nginx,location_code=$(LOCATION_CODE)"]
+            command: ["/bin/sh","-c"]
+            args: ["kubectl delete pods -l app=nginx,location_code=$(LOCATION_CODE); curl -X POST --data-urlencode payload={\"channel\": \"#somechannel\", \"username\": \"hello\", \"text\": \"Restarted cups at $(LOCATION_CODE)\", \"icon_emoji\": \":ghost:\"} $(HOOK_URL)"]
           restartPolicy: Never
 
