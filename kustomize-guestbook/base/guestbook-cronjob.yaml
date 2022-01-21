@@ -54,7 +54,7 @@ spec:
                 valueFrom:
                   fieldRef:
                     fieldPath: metadata.labels['location_code']
-            command: ["/bin/sh","-c"]
-            args: ["kubectl delete pods -l app=nginx,location_code=$(LOCATION_CODE)", "curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"Restarted cups at $(LOCATION_CODE)\"}' $HOOK_URL"]
+            command: ["/bin/sh", "-c"]
+            args: ["kubectl delete pods -l app=nginx,location_code=$(LOCATION_CODE); curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"Restarted cups at $(LOCATION_CODE)\"}' $HOOK_URL"]
           restartPolicy: Never
 
