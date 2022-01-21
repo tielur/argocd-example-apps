@@ -55,6 +55,6 @@ spec:
                   fieldRef:
                     fieldPath: metadata.labels['location_code']
             command: ["/bin/sh", "-c"]
-            args: ["kubectl delete pods -l app=nginx,location_code=$(LOCATION_CODE); curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"Restarting CUPS. If printing doesn\'t resume within the next 15 minutes please use \"Help Needed\" button\"}' $HOOK_URL"]
+            args: ["kubectl delete pods -l app=nginx,location_code=$(LOCATION_CODE); curl -X POST -H 'Content-type: application/json' --data \'{\"text\":\"Restarting CUPS. If printing doesn\'t resume within the next 15 minutes please use \"Help Needed\" button\"}\' $HOOK_URL"]
           restartPolicy: Never
 
