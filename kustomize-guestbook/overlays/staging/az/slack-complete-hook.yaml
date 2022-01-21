@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: app-slack-notification-
+  name: agrocd-slack-notification-complete
   annotations:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
@@ -11,12 +11,12 @@ spec:
       containers:
       - name: slack-notification
         image: curlimages/curl
-         env:
-        - name: HOOK_URL
-          valueFrom:
-            secretKeyRef:
-              name: slack-notification-url
-              key: argocd
+        env:
+          - name: HOOK_URL
+            valueFrom:
+              secretKeyRef:
+                name: slack-notification-url
+                key: argocd
         command:
           - "curl"
           - "-X"
